@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Glass Data Extractor</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body data-theme="dark" data-fx="off">
+  <div class="wrap">
+    <div class="topbar">
+      <div class="title">
+        <h1>Glass Data Extractor</h1>
+        <p>Virtualized list (fast). Click any field to copy. Toggle <span class="mono">done</span> instantly.</p>
+      </div>
+
+      <div class="pillrow">
+        <div class="pill" id="rowsPill"><b>0</b> <span>rows</span></div>
+        <button class="btn" id="themeBtn">Toggle theme</button>
+        <button class="btn" id="fxBtn" title="FX adds blur (can be slower)">FX: Off</button>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- LEFT -->
+      <section class="panel">
+        <div class="panelHeader">
+          <div class="phLeft">
+            <h2>Input</h2>
+            <span class="sub">raw JSON / almost-JSON</span>
+          </div>
+          <span class="sub mono" id="parseHint">Ready</span>
+        </div>
+
+        <div class="panelBody">
+          <textarea id="raw" spellcheck="false" placeholder="Paste your list here..."></textarea>
+
+          <div class="btnrow">
+            <button class="btn primary" id="parseBtn">Parse & Render</button>
+            <button class="btn" id="copyJsonBtn">Copy Current JSON</button>
+            <button class="btn" id="sampleBtn">Load Sample</button>
+            <button class="btn danger" id="clearBtn">Clear</button>
+          </div>
+
+          <div class="error" id="errBox"></div>
+        </div>
+      </section>
+
+      <!-- RIGHT -->
+      <section class="panel">
+        <div class="panelHeader">
+          <div class="phLeft">
+            <h2>Extracted data</h2>
+            <span class="sub">filter • sort • copy • toggle done</span>
+          </div>
+          <div class="pillrow">
+            <button class="btn" id="csvBtn">Download CSV</button>
+            <button class="btn" id="copyCsvBtn">Copy CSV</button>
+          </div>
+        </div>
+
+        <div class="panelBody">
+          <div class="filters">
+            <input class="input" id="q" placeholder="Search name, tracking, city, state, marketplace…" style="flex:1;min-width:220px;" />
+            <select id="mp"><option value="">All marketplaces</option></select>
+            <select id="done">
+              <option value="">All status</option>
+              <option value="false">Pending</option>
+              <option value="true">Done</option>
+            </select>
+            <select id="missing">
+              <option value="">All addresses</option>
+              <option value="missing">Missing city/state</option>
+            </select>
+          </div>
+
+          <div class="listWrap">
+            <div class="listHeader" id="listHeader">
+              <div class="hcell" data-k="idx">#</div>
+              <div class="hcell" data-k="nome">Nome</div>
+              <div class="hcell" data-k="trackingOne">Rastreio</div>
+              <div class="hcell" data-k="marketplace">MP</div>
+              <div class="hcell" data-k="marketplaceOrder">Pedido MP</div>
+              <div class="hcell" data-k="cidade">Cidade</div>
+              <div class="hcell" data-k="estado">UF</div>
+              <div class="hcell" data-k="done">Done</div>
+            </div>
+
+            <div class="viewport" id="viewport">
+              <div class="spacer" id="topSpacer"></div>
+              <div id="rowsHost"></div>
+              <div class="spacer" id="botSpacer"></div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="./sample-data.js" defer></script>
+  <script src="./app.js" defer></script>
+</body>
+</html>
