@@ -10,6 +10,7 @@
     const t = $("toast");
     t.textContent = msg;
     t.classList.add("show");
+    t.style.zIndex = "9999";
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => t.classList.remove("show"), 850);
   }
