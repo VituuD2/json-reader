@@ -40,7 +40,7 @@ body{
   overflow-x:hidden;
 }
 
-.wrap{ max-width:1180px; margin:24px auto; padding:0 18px 40px; }
+.wrap{ max-width:1380px; margin:24px auto; padding:0 18px 40px; }
 
 .topbar{
   display:flex; align-items:center; justify-content:space-between; gap:12px;
