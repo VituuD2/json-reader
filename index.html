@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -13,8 +14,12 @@
     <div class="topbar">
       <div class="title">
         <h1>Glass Data Extractor</h1>
-        <h7>05-01-26 (1)</h7>
         <p>Virtualized list (fast). Click any field to copy. Toggle <span class="mono">done</span> instantly.</p>
+      </div>
+
+      <div class="version-badge">
+        <span id="current-date">--/--/--</span>
+        <span class="version-num">(1)</span>
       </div>
 
       <div class="pillrow">
@@ -64,8 +69,11 @@
 
         <div class="panelBody">
           <div class="filters">
-            <input class="input" id="q" placeholder="Search name, tracking, city, state, marketplace…" style="flex:1;min-width:220px;" />
-            <select id="mp"><option value="">All marketplaces</option></select>
+            <input class="input" id="q" placeholder="Search name, tracking, city, state, marketplace…"
+              style="flex:1;min-width:220px;" />
+            <select id="mp">
+              <option value="">All marketplaces</option>
+            </select>
             <select id="done">
               <option value="">All status</option>
               <option value="false">Pending</option>
@@ -106,4 +114,5 @@
   <script src="./sample-data.js" defer></script>
   <script src="./app.js" defer></script>
 </body>
+
 </html>

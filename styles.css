@@ -70,6 +70,34 @@ body{
   gap:14px;
   align-items:start;
 }
+
+.version-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: var(--panelB);
+  border: 1px solid var(--line);
+  border-radius: 8px; /* Combinando com seus raios curvos */
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  user-select: none;
+  box-shadow: var(--shadow);
+}
+
+.version-num {
+  color: var(--fg); /* Destaca levemente o número da versão */
+  opacity: 0.9;
+}
+
+/* Efeito de hover sutil */
+.version-badge:hover {
+  border-color: var(--focus);
+  background: var(--panelA);
+}
+
 @media (max-width:980px){ .grid{ grid-template-columns:1fr; } }
 
 /* Perf default: NO blur on panels */
