@@ -275,12 +275,19 @@ textarea:focus{ box-shadow:0 0 0 3px var(--focus); }
 .cell[data-copy]:hover::after{
   content:"Copy";
   position:absolute;
-  right:6px; top:50%;
+  right:4px; top:50%;
   transform:translateY(-50%);
-  font-size:11px;
-  color:var(--muted2);
-  opacity:.7;
+  font-size:10px;
+  font-weight: 600;
+  color:#4ade80;
+  background: rgba(74, 222, 128, 0.15);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  padding: 2px 6px;
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
   pointer-events:none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 2;
 }
 
 .switch{
@@ -312,6 +319,59 @@ textarea:focus{ box-shadow:0 0 0 3px var(--focus); }
 
 .rowDone{ color:var(--muted); }
 .rowDone .tag{ opacity:.7; }
+
+/* Tooltip (?) style */
+.tooltip-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--panelB);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: help;
+  position: relative;
+  margin-left: 4px;
+}
+.tooltip-icon:hover {
+  background: var(--panelA);
+  color: var(--fg);
+  border-color: var(--focus);
+}
+.tooltip-icon::before {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: 100%; left: 50%;
+  transform: translate(-50%, -8px);
+  width: max-content;
+  max-width: 220px;
+  padding: 6px 10px;
+  background: #1a1a1c;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--fg);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s, transform 0.15s;
+  z-index: 100;
+  box-shadow: var(--shadow);
+}
+[data-theme="light"] .tooltip-icon::before {
+  background: #fff;
+}
+.tooltip-icon:hover::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -4px);
+}
 
 .toast{
   position:fixed; left:50%; bottom:18px;
